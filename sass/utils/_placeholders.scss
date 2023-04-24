@@ -1,0 +1,10 @@
+%flex-center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%body-fadein{
+    opacity:0.5;
+    animation:halffadein 1s 2s forwards;
+}

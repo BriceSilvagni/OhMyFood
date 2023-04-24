@@ -1,0 +1,188 @@
+/* PAGE D'ACCEUIL*/
+/* zone de localisation */
+.location{
+    @extend %flex-center;
+    width: 100%;
+    background: linear-gradient($colour-grey-3, 10%,$colour-grey-2);
+    &__icon{
+        position:relative;
+        right:20px;       
+    }
+}
+
+/* zone de présentation */
+.reserve{
+    @extend %flex-center;
+    flex-direction:column;
+    text-align: center;
+    background: $colour-grey-1;
+    padding:10% 5%;
+    @include tablette{
+        padding: 8% 5%;
+    }
+    @include desktop{
+        padding: 4% 5%;
+    }
+    &__title{
+        h2{
+            margin:0;
+        }
+    }
+    &__button{
+        margin: 3% 0 5% 0;
+        @include tablette{
+            margin: 3% 4%;
+        }
+        @include desktop{
+            margin: 3% 3%;
+        }
+    }
+}
+
+/* zone de démonstration du fonctionnement du site */
+.functionning
+{
+    padding: 8% 5% 10% 5%;
+    @include tablette{
+        padding: 6% 5% 8% 5%;
+    }
+    @include desktop{
+        padding: 4% 5% 6% 5%;
+    }
+    &__title{
+        padding-bottom: 2%;
+    }
+    &__steps{
+        display:flex;
+        flex-direction: column;
+        padding-left:10px;
+        gap: 25px;
+        @include desktop{
+            flex-direction: row;
+        }
+    }
+}
+
+.step{
+    display:flex;
+    align-items: center;
+    background: $colour-grey-1;
+    padding: 0px;
+    width: 100%;
+    height: 80px;
+    border-radius: 20px;
+    box-shadow: 2px 5px 10px $colour-step-shadow;
+    transition: background-color 0.1s;
+    &__number{
+        @extend %flex-center;
+        height:0px;
+        width: 0px;
+        padding: 14px 14px;
+        border-radius: 30px;
+        margin-left:-15px;
+        color:$colour-white;
+        background-color: $colour-primary;
+        
+    }
+    &__icon{       
+        padding: 0 7%;
+        color: $colour-label-text;
+    }
+    &:hover{
+        transition: 0.2s;
+        background-color: $colour-step-hover;
+    }
+    &:hover i{
+        transition: 0.2s;
+        color:$colour-primary;
+    }
+}
+
+/* zone d'affichage des restaurants' */
+.restaurants
+{
+    background-color: $colour-grey-1;
+    padding: 5% 5% 10% 5%;
+    @include tablette{
+        padding: 5% 5% 8% 5%;
+    }
+    @include desktop{
+        padding: 4% 5% 6% 5%;
+    }
+    h3{
+        padding-bottom: 2%;
+    }
+    &__container{
+        display:flex;
+        flex-direction: column;
+        gap:30px;
+        @include desktop{
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+}
+
+/* PAGES MENUS*/
+.background-top{
+        @extend %flex-center;
+        height: 275px;        
+        img{           
+            max-width: 1600px;
+            @include desktop{
+                border-radius: 100px 100px 0 0;
+            }
+        }
+}
+
+.menu{
+    position: relative;
+    margin-top:-50px;
+    padding: 5%;
+    border-radius: 40px 40px 0 0;
+    background-color: $colour-menu-page;
+    @include tablette{
+        border-radius: 20px 20px 0 0;
+    }
+    @include desktop{
+        border-radius: 0px 0px 0 0;
+    }
+    &__title{
+        @extend %flex-center;
+        gap: 40px;
+        h2{
+            margin-top:30px;
+        }
+    }
+}
+
+.sub-menu{
+    &__title{
+        p{
+            border-bottom: solid 3px $colour-tertiary;
+            width: 40px;
+            padding-bottom: 1%;
+        }
+    }
+    &__container{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+        padding-bottom: 7%;
+    }
+}
+
+.menu__button{
+    @extend %flex-center;
+    margin-top: 7%;
+    margin-bottom:10%;
+    @include tablette{
+        margin-top: 4%;
+        margin-bottom: 7%;
+    }
+    @include desktop{
+        margin-top: 2%;
+        margin-bottom: 3%;
+    }
+}

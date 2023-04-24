@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'shrikhand';
+    src: url(fonts/Shrikhand-Regular.otf);
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+h1{
+    margin:0;
+    font-weight: 400;
+}
+
+.reserve{
+    h2{
+    font-size: 25px;
+    font-weight:1000;
+    }
+    p{
+        font-size: 18px;
+        font-weight: 300;
+    }
+}
+
+.functionning{ 
+    h3{
+    font-size:22px;
+    font-weight: 800;
+    }
+    .step__text{
+        font-size:16px;
+        font-weight: 600;
+    }
+}
+
+.restaurants{
+    h3{
+        font-size:22px;
+        font-weight: 800;
+    }
+}
+
+h4
+{
+    font-size: 19px;
+    margin:0;
+}
+
+.footer{
+    &__brand{
+        font-family:'shrikhand';
+    }
+}
+
+/* Pages menus*/
+.label{
+    &__left{
+        .title{
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .text{
+            font-weight: 100;
+            font-size: 16px;
+        }
+    }
+    &__right{
+        .price{
+            font-weight: 600;
+            font-size: 15px;
+            @include desktop{
+                font-size:16px;
+            }
+        }
+    }
+    
+}
+
+.menu__title{
+    h2{
+        font-family: "shrikhand";
+        font-size: 26px;
+        font-weight: 400;
+        @include desktop{
+            font-size:30px;
+        }
+    }
+}
+
+.sub-menu{
+    &__title{
+        font-weight: 400;
+    }
+}

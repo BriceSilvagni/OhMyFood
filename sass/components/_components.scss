@@ -1,0 +1,262 @@
+/* comportement du loader */
+.loader-screen{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeout 1s 2s forwards;
+        &__sphere {
+        width: 150px;
+        height: 150px;
+        background-color:$colour-primary;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
+          0 5px 12px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 45%;
+                top: -40%;
+                background-color:$colour-secondary;
+                animation: wave 7s linear infinite;
+            }
+            &:before {
+            border-radius: 30%;
+            background:$colour-tertiary;
+            animation: wave 5s linear infinite;
+            }  
+        }  
+}
+
+/* comportement du site durant le chargement */
+#index{
+    header,main,footer{
+    @extend %body-fadein;
+    }
+}
+
+/* Boutton principal */
+.main-button
+{
+    width: 200px;
+    height: 50px;
+    color: $colour-white;
+    background: linear-gradient(to bottom right,$colour-secondary, 25%, $colour-primary);
+    border:none;
+    border-radius: 30px;
+    box-shadow: 0px 10px 20px $colour-button-shadow-light;
+    cursor:pointer;
+    transition: box-shadow 0.6s;
+    &:hover{
+        transition: 0.3s;
+        background: linear-gradient(to bottom right,$colour-secondary, 50%, $colour-primary);
+        box-shadow: 0px 10px 20px $colour-button-shadow-dark;
+    }
+}
+
+/* Cards de restaurants*/
+.card
+{
+    color: $colour-black;
+    text-decoration: none;
+    border-radius:15px;
+    box-shadow: 0px 5px 20px $colour-cards-shadow;
+    overflow: hidden;
+    @include desktop{
+        width: 48%;
+    }
+    &__img{
+        height:250px;
+    }
+    &__img p{
+        padding-top: 10px;
+        text-align:center;
+        height: 30px;
+        width: 25%;
+        min-width: 80px;
+        background-color: $colour-tertiary;
+        position:relative;
+        bottom: 100%;
+        left:65%;
+    }
+    &__body{
+        height: 60px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 3%;
+    }
+}
+
+.content{
+    height:100%;
+    width: 95%;
+    &__title{
+        height:50%;
+        display:flex;
+        align-items: center;
+    }
+    &__text{
+        height: 50%;
+        font-weight: 100;
+        display:flex;
+        align-items: center;
+    }
+}
+
+.heart{
+    height:32px;
+    width:32px;
+}
+
+/* Heart animation */
+
+.heart__empty{ 
+    padding-top: 16px;
+}
+.heart__empty:hover{
+    
+    transition: 250ms;
+    background:-webkit-linear-gradient($colour-primary,$colour-secondary);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.heart:hover .heart__full{
+    transition: 1000ms;
+    opacity:1;
+    background:-webkit-linear-gradient($colour-primary,$colour-secondary);
+    background-clip:text;
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.heart__full{
+    opacity:0;
+    margin-top:-16px;
+    color:$colour-white;
+    cursor:pointer;
+}
+
+/* Décalage apparition des plats : animation*/
+.sub-menu__container{
+    opacity:0;
+}
+
+.starter .sub-menu__container
+{
+    animation: fadein 1s;
+    animation-fill-mode: forwards;
+}
+
+.dish .sub-menu__container
+{
+    animation: fadein 1s;
+    animation-delay: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+.dessert .sub-menu__container
+{
+    animation: fadein 1s;
+    animation-delay: 1.4s;
+    animation-fill-mode: forwards;
+}
+
+/* Labels et animation check*/
+.label{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+    padding-left: 3%;
+    background-color: $colour-white;
+    width: 97%;
+    border-radius:20px;       
+    overflow: hidden;
+    &:hover .label__left{
+        transition: 0.4s;
+        width: 60%;
+    }
+    &:hover .label__right{
+        transition: 0.4s;
+        width: 40%;
+    }
+    &:hover .price{
+        transition: 0.4s;
+        width: 50%;
+    }
+    &:hover .icon-check{
+        transition: 0.4s;
+        width: 50%;
+    }
+    &:hover i{
+        transform: rotate(360deg);
+        transition: 0.4s;
+    }
+    &:hover .title{
+        transition: 0.4s;
+        width: 125%;
+    }
+    &__left {
+        height: 50%;
+        width: 80%;
+        margin:0;
+        transition: width 0.4s;
+        .title{
+            width: 115%;
+        }
+        p{
+            width:100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    &__right{
+        width: 20%;
+        @extend %flex-center;
+        transition: width 0.4s;
+        .price{
+            text-align: center;
+            width: 100%;
+            transition: width 0.4s;       
+            p{
+                position:relative;
+                top:14px;
+            }
+        }
+        .icon-check{
+            @extend %flex-center;
+            width: 0%;
+            height: 100%;
+            background-color: $colour-tertiary;
+            cursor:pointer;
+            transition: width 0.4s;
+            i{
+                color:$colour-white;
+            }
+        }
+    }
+}
+
+/* Ecartement title et text de label*/
+.label{
+    .title p{
+        margin-top:11px;
+    margin-bottom: 6px;
+    }
+    .text p{
+    margin-top:0;
+    margin-bottom:11px;
+}
+}
